@@ -1,0 +1,23 @@
+html {
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.5em;
+}
+
+.container {
+    margin-top: 50px;
+    margin-inline: auto;
+    max-width: 1400px;
+}
+
+@media (max-width: 1500px) {
+    .container {
+        margin-inline: 50px;
+    }
+}
+
+@media (max-width: 200px) {
+    .container {
+        margin-inline: 20px;
+    }
+}
