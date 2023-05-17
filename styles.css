@@ -4,6 +4,10 @@ html {
     font-size: 1.5em;
 }
 
+p {
+    margin-bottom: 10px;
+}
+
 .container {
     margin-top: 50px;
     margin-inline: auto;
