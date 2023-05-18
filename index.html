@@ -6,14 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="m-gold-s.png" type="image/png">
     <title>Expense Tracker</title>
-    <link rel="stylesheet" href="reset.css">
+    <!-- Check if styles reset is required -->
+    <!-- <link rel="stylesheet" href="reset.css"> -->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab quis excepturi ipsa ullam quibusdam accusantium deleniti dignissimos, aperiam mollitia placeat eligendi iste ducimus a totam eaque reiciendis nisi consequuntur esse in aliquid pariatur fugit. Alias minima, sit perferendis inventore, excepturi libero laborum unde quidem consequatur quas odit aliquam? At fugit quisquam ullam nam labore? Incidunt iusto adipisci qui beatae, ad officia natus excepturi quo. Architecto repellendus adipisci beatae, sed, nisi odio cum ut eligendi magni, rem rerum temporibus! Cumque incidunt voluptatibus odit doloribus temporibus et, error nesciunt, ipsam a officia quos? Deserunt totam et nesciunt quia aspernatur animi a sapiente?</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab quis excepturi ipsa ullam quibusdam accusantium deleniti dignissimos, aperiam mollitia placeat eligendi iste ducimus a totam eaque reiciendis nisi consequuntur esse in aliquid pariatur fugit. Alias minima, sit perferendis inventore, excepturi libero laborum unde quidem consequatur quas odit aliquam? At fugit quisquam ullam nam labore? Incidunt iusto adipisci qui beatae, ad officia natus excepturi quo. Architecto repellendus adipisci beatae, sed, nisi odio cum ut eligendi magni, rem rerum temporibus! Cumque incidunt voluptatibus odit doloribus temporibus et, error nesciunt, ipsam a officia quos? Deserunt totam et nesciunt quia aspernatur animi a sapiente?</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab quis excepturi ipsa ullam quibusdam accusantium deleniti dignissimos, aperiam mollitia placeat eligendi iste ducimus a totam eaque reiciendis nisi consequuntur esse in aliquid pariatur fugit. Alias minima, sit perferendis inventore, excepturi libero laborum unde quidem consequatur quas odit aliquam? At fugit quisquam ullam nam labore? Incidunt iusto adipisci qui beatae, ad officia natus excepturi quo. Architecto repellendus adipisci beatae, sed, nisi odio cum ut eligendi magni, rem rerum temporibus! Cumque incidunt voluptatibus odit doloribus temporibus et, error nesciunt, ipsam a officia quos? Deserunt totam et nesciunt quia aspernatur animi a sapiente?</p>
+        <h1>Expenses Tracker</h1>
+        <p>Add new expense amount:</p>
+        <input 
+            id="expenseAdder"
+            type="number">
+        <button 
+            id="expenseAdderButton">
+            Enter
+        </button>
+
+        <h2>Spent List</h2>
+        <div id="spentList">
+        </div>
     </div>
     <script src="expense.js"></script>
 </body>
