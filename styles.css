@@ -1,6 +1,6 @@
 body {
     /* box-sizing: border-box; */
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 1.25em;
     color: aqua;
     background-color: black;
@@ -25,6 +25,6 @@ input {
 
 @media (max-width: 1500px) {
     .container {
-        margin-inline: 2em;
+        /* margin-inline: 2em; */
     }
 }

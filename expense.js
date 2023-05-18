@@ -1,3 +1,5 @@
+const LIMIT = 2350;
+
 // Create list of expenses
 const expenses = [];
 
@@ -5,6 +7,10 @@ const expenseAdderNode = document.querySelector('#expenseAdder');
 const expenseAdderButtonNode = document.querySelector('#expenseAdderButton');
 const spentListNode = document.querySelector('#spentList');
 const totalSpentNode = document.querySelector('#total');
+const limitNode = document.querySelector('#limit');
+const statusNode = document.querySelector('#status');
+
+limitNode.innerText = LIMIT;
 
 expenseAdderButtonNode.addEventListener('click', function() {
     // Get input field value and check for integer
@@ -13,7 +19,7 @@ expenseAdderButtonNode.addEventListener('click', function() {
         return;
     }
 
-    const amount = parseInt(expenseAdderNode.value);
+    let amount = parseInt(expenseAdderNode.value);
     expenseAdderNode.value = '';
     
     // Add value amout to list of expenses
@@ -39,4 +45,11 @@ expenseAdderButtonNode.addEventListener('click', function() {
 
     console.log(totalSpent);
     totalSpentNode.innerText = totalSpent;
+
+    // Check and display status
+    if (totalSpent <= LIMIT) {
+        statusNode.innerText = 'on target';
+    } else {
+        statusNode.innerText = 'above budget';
+    }
 });
