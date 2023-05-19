@@ -2,7 +2,7 @@ body {
     /* box-sizing: border-box; */
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 1.25em;
-    color: aqua;
+    color: white;
     background-color: black;
 }
 
@@ -15,16 +15,20 @@ button {
 button,
 input {
     font-family: inherit;
+    font-size: inherit;
 }
 
 .container {
     margin: 20px auto;
+    padding-inline: 1em;
     width: fit-content;
     border: 1px dashed yellow;
 }
 
-@media (max-width: 1500px) {
-    .container {
-        /* margin-inline: 2em; */
-    }
+.status {
+    color: lightgreen;
+}
+
+.status-alert {
+    color: red;
 }

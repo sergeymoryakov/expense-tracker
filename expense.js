@@ -1,55 +1,87 @@
-const LIMIT = 2350;
-
-// Create list of expenses
-const expenses = [];
+const LIMIT = 2400;
+const CURRENCY = 'Euro';
+const STATUS_OK = 'on target';
+const STATUS_ALERT = 'above budget';
+const STATUS_ALERT_CLASSNAME = 'status-alert';
 
 const expenseAdderNode = document.querySelector('#expenseAdder');
 const expenseAdderButtonNode = document.querySelector('#expenseAdderButton');
-const spentListNode = document.querySelector('#spentList');
-const totalSpentNode = document.querySelector('#total');
 const limitNode = document.querySelector('#limit');
+const totalSpentNode = document.querySelector('#total');
 const statusNode = document.querySelector('#status');
+const spentListNode = document.querySelector('#spentList');
 
-limitNode.innerText = LIMIT;
+const expenses = [];
+
+init(expenses);
 
 expenseAdderButtonNode.addEventListener('click', function() {
-    // Get input field value and check for integer
-    if (!expenseAdderNode.value) {
-        console.log('Error: Empty value');
+    const amount = getExpenseFromUser();
+    if (!amount) {
         return;
     }
+    trackExpenses(amount);
+    render(expenses);
+});
 
+function init(expenses) {
+    limitNode.innerText = LIMIT;
+    totalSpentNode.innerText = calcTotalSpent(expenses);
+    statusNode.innerText = STATUS_OK;
+};
+
+function getExpenseFromUser() {
+    if (!expenseAdderNode.value) {
+        return null;
+    }
     let amount = parseInt(expenseAdderNode.value);
+    clearInput();
+    return amount;
+}
+
+function clearInput() {
     expenseAdderNode.value = '';
-    
-    // Add value amout to list of expenses
+}
+
+function trackExpenses(amount) {
     expenses.push(amount);
+};
 
-    console.log(expenses);
-    
-    // Display list of expenses
-    let spentListHTML = '';
-
-    expenses.forEach(element => {
-        spentListHTML = spentListHTML + `<li>${element} Euro</li>`;
-    });
-    
-    console.log('SpentListHTML: ', spentListHTML);
-    spentListNode.innerHTML = `<ol>${spentListHTML}</ol>`;
-
-    // Calculate and display Total Spent
+function calcTotalSpent(expenses) {
     let totalSpent = 0;
     expenses.forEach(element => {
         totalSpent += element;
     });
+    return totalSpent;
+};
 
-    console.log(totalSpent);
+function render(expenses) {
+    let totalSpent = calcTotalSpent(expenses);
+    renderTotalSpent(totalSpent);
+    renderStatus(totalSpent);
+    renderHistory(expenses);
+}
+
+function renderTotalSpent(totalSpent) {
     totalSpentNode.innerText = totalSpent;
+};
 
-    // Check and display status
+function renderStatus(totalSpent) {
+    // const totalSpent = calcTotalSpent(expenses);
     if (totalSpent <= LIMIT) {
-        statusNode.innerText = 'on target';
+        statusNode.innerText = STATUS_OK;
+        statusNode.classList.remove(STATUS_ALERT_CLASSNAME);
     } else {
-        statusNode.innerText = 'above budget';
-    }
-});
+        statusNode.innerText = STATUS_ALERT;
+        statusNode.classList.add(STATUS_ALERT_CLASSNAME);
+    };
+};
+
+function renderHistory(expenses) {
+    let spentListHTML = '';
+    expenses.forEach(element => {
+        spentListHTML = spentListHTML + `<li>${element} ${CURRENCY}</li>`;
+    });
+    console.log('SpentListHTML: ', spentListHTML);
+    spentListNode.innerHTML = `<ol>${spentListHTML}</ol>`;
+};
