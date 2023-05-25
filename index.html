@@ -7,28 +7,57 @@
     <link rel="shortcut icon" href="m-gold-s.png" type="image/png">
     <title>Expense Tracker</title>
     <!-- Check if styles reset is required -->
-    <!-- <link rel="stylesheet" href="reset.css"> -->
+    <link rel="stylesheet" href="reset.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
-        <h1>Expense Tracker</h1>
-        <p>Add new expense amount:</p>
-        <input 
-            id="expenseAdder"
-            type="number">
-        <button 
-            id="expenseAdderButton">
-            Enter
-        </button>
+        <h1 class="label">Expense Tracker</h1>
+        <p>Add new expense amount (enter negative if cashback or return):</p>
+        <div class="masterBlock">
+            <div class="inputBlock">
+                <div class="inputAmount euro">
+                    <input
+                        id="expenseAdder"
+                        class="expenseAdder"
+                        type="number">
+                </div>
+            </div>
+            <div class="inputButtonBlock">
+                <button 
+                    class="inputButton"
+                    id="expenseAdderButton">
+                    Enter
+                </button>
+            </div>
+            
+            <div class="statusBlock">
+                <div>
+                    <span class="label">Limit: </span>
+                    <span id="limit" class="euro"></span>                    
+                </div>
+                <div>
+                    <span class="label">Total spent: </span>
+                    <span id="total" class="euro"></span>
+                </div>
+                <div>
+                    <span class="label">Status: </span>
+                    <span id="status" class="status">on target</span>
+                </div>
+            </div>
+            
+            <div class="historyBlock">
+                <div class="label">Spent List</div>
+                <div id="spentList"></div>
+            </div>
+        </div>
 
-        <p>Limit: <span id="limit"></span> Euro</p>
-        <p>Total spent: <span id="total"></span> Euro</p>
-        <p>Status: <span id="status" class="status">on target</span></p>
-
-        <h2>Spent List</h2>
-        <div id="spentList"></div>
     </div>
+
+
     <script src="expense.js"></script>
 </body>
 </html>

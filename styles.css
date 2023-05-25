@@ -1,28 +1,97 @@
+:root {
+    --width-min: 250px;
+    --padding-const: 15px;
+    --gap-const: 15px;
+    --currency: " Euro";
+}
+
 body {
     /* box-sizing: border-box; */
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 1.25em;
+    font-family: 'Inter', sans-serif;
+    font-size: 1.0em;
     color: white;
     background-color: black;
 }
 
-h1,
-p,
+input,
 button {
-    margin-bottom: 1em;
-}
-
-button,
-input {
     font-family: inherit;
     font-size: inherit;
+    cursor: pointer;
+}
+
+button:hover {
+    opacity: 0.5;
+}
+
+.label {
+    font-weight: 700;
+}
+ol {
+    list-style: decimal;
+    list-style-position: inside;
 }
 
 .container {
-    margin: 20px auto;
-    padding-inline: 1em;
-    width: fit-content;
-    border: 1px dashed yellow;
+    margin-inline: auto;
+    padding-inline: var(--padding-const);
+
+    /* width: fit-content; */
+    min-width: var(--width-min);
+
+    /* for dev only - remove in production */
+    border: 1px solid pink;
+}
+
+.masterBlock {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: var(--gap-const);
+}
+
+.inputBlock,
+.inputButtonBlock,
+.statusBlock,
+.historyBlock {
+    width: calc(100% / 2 - var(--gap-const) / 2 - 2px);
+
+    /* for dev only - remove in production */
+    border: 1px dotted lightgreen;
+}
+
+@media (max-width: 576px) {
+    .inputBlock {
+        width: auto;
+    }
+
+    .inputButtonBlock {
+        width: fit-content;
+    }
+
+    .statusBlock,
+    .historyBlock {
+        width: calc(100% - 2px);
+
+        /* for dev only - remove in production */
+        border: 1px dotted red;
+    }
+}
+
+.inputBlock {
+    display: flex;
+    align-items: center;
+}
+
+.expenseAdder {
+    color: white;
+    background-color: black;
+    /* border: none; */
+}
+
+.euro::after {
+    content: var(--currency);
+
 }
 
 .status {
