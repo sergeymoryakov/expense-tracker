@@ -18,14 +18,23 @@
         <h1 class="label">Expense Tracker</h1>
         <p>Add new expense amount (enter negative if cashback or return):</p>
         <div class="masterBlock">
-            <div class="inputBlock">
-                <div class="inputAmount euro">
-                    <input
-                        id="expenseAdder"
-                        class="expenseAdder"
-                        type="number">
-                </div>
+            <div class="inputBlock euro">
+                <input
+                    id="expenseAdder"
+                    class="expenseAdder"
+                    type="number">
             </div>
+            <div class="catBlock">
+                <select class="catSelector" name="" id="" disabled="disabled">
+
+                </select>
+            </div>
+            <div class="dateBlock">
+                    <select class="dateSelector" name="" id="" disabled="disabled">
+    
+                    </select>
+            </div>
+
             <div class="inputButtonBlock">
                 <button 
                     class="inputButton"
@@ -37,7 +46,7 @@
             <div class="statusBlock">
                 <div>
                     <span class="label">Limit: </span>
-                    <span id="limit" class="euro"></span>                    
+                    <span id="limit" class="euro">5000</span>                    
                 </div>
                 <div>
                     <span class="label">Total spent: </span>
@@ -52,6 +61,13 @@
             <div class="historyBlock">
                 <div class="label">Spent List</div>
                 <div id="spentList"></div>
+            </div>
+            <div class="clearBlock">
+                <button 
+                    class="clearButton"
+                    id="clearButton">
+                    Clear history
+                </button>
             </div>
         </div>
 

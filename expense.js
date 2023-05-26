@@ -1,4 +1,3 @@
-const LIMIT = 2400;
 const CURRENCY = 'Euro';
 const STATUS_OK = 'on target';
 const STATUS_ALERT = 'above budget';
@@ -6,12 +5,15 @@ const STATUS_ALERT_CLASSNAME = 'status-alert';
 
 const expenseAdderNode = document.querySelector('#expenseAdder');
 const expenseAdderButtonNode = document.querySelector('#expenseAdderButton');
-const limitNode = document.querySelector('#limit');
 const totalSpentNode = document.querySelector('#total');
 const statusNode = document.querySelector('#status');
 const spentListNode = document.querySelector('#spentList');
 
-const expenses = [];
+// const LIMIT = 2400;
+const limitNode = document.querySelector('#limit');
+const LIMIT = parseInt(limitNode.innerText);
+
+let expenses = [];
 
 init(expenses);
 
