@@ -9,6 +9,11 @@ const totalSpentNode = document.querySelector('#total');
 const statusNode = document.querySelector('#status');
 const spentListNode = document.querySelector('#spentList');
 
+// new fithures for Stage Two: Categories, Date Selectors and Clear Button
+const catSelectorNode = document.getElementById("catSelector");
+const dateSelectorNode = document.getElementById("dateSelector");
+const clearButtonNode = document.getElementById("clearButton");
+
 // const LIMIT = 2400;
 const limitNode = document.querySelector('#limit');
 const LIMIT = parseInt(limitNode.innerText);
@@ -18,11 +23,21 @@ let expenses = [];
 init(expenses);
 
 expenseAdderButtonNode.addEventListener('click', function() {
-    const amount = getExpenseFromUser();
-    if (!amount) {
+    const currentAmount = getExpenseFromUser();
+    if (!currentAmount) {
         return;
     }
-    trackExpenses(amount);
+
+    const currentCategory = getSelectedCategory();
+    if (currentCategory === "Category") {
+        return;
+    }
+    console.log(currentCategory);
+
+    const expenseObject = { amount: currentAmount, category: currentCategory };
+    console.log(expenseObject); 
+
+    trackExpenses(expenseObject);
     render(expenses);
 });
 
@@ -36,23 +51,29 @@ function getExpenseFromUser() {
     if (!expenseAdderNode.value) {
         return null;
     }
-    let amount = parseInt(expenseAdderNode.value);
+    let currentAmount = parseInt(expenseAdderNode.value);
     clearInput();
-    return amount;
-}
+    return currentAmount;
+};
+
+function getSelectedCategory() {
+    return catSelectorNode.value;
+};
 
 function clearInput() {
     expenseAdderNode.value = '';
-}
+};
 
-function trackExpenses(amount) {
-    expenses.push(amount);
+function trackExpenses(input) {
+    expenses.push(input);
+    // for TBS only
+    console.log(expenses);
 };
 
 function calcTotalSpent(expenses) {
     let totalSpent = 0;
-    expenses.forEach(element => {
-        totalSpent += element;
+    expenses.forEach(expense => {
+        totalSpent += expense.amount;
     });
     return totalSpent;
 };
@@ -82,7 +103,7 @@ function renderStatus(totalSpent) {
 function renderHistory(expenses) {
     let spentListHTML = '';
     expenses.forEach(element => {
-        spentListHTML = spentListHTML + `<li>${element} ${CURRENCY}</li>`;
+        spentListHTML = spentListHTML + `<li>${element.category} - ${element.amount} ${CURRENCY}</li>`;
     });
     console.log('SpentListHTML: ', spentListHTML);
     spentListNode.innerHTML = `<ol>${spentListHTML}</ol>`;
