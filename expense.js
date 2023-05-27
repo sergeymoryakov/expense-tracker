@@ -4,7 +4,7 @@ const STATUS_ALERT = 'above budget';
 const STATUS_ALERT_CLASSNAME = 'status-alert';
 
 const expenseAdderNode = document.querySelector('#expenseAdder');
-const expenseAdderButtonNode = document.querySelector('#expenseAdderButton');
+const inputButtonNode = document.querySelector('#inputButton');
 const totalSpentNode = document.querySelector('#total');
 const statusNode = document.querySelector('#status');
 const spentListNode = document.querySelector('#spentList');
@@ -22,7 +22,7 @@ let expenses = [];
 
 init(expenses);
 
-expenseAdderButtonNode.addEventListener('click', function() {
+inputButtonNode.addEventListener('click', function() {
     const currentAmount = getExpenseFromUser();
     if (!currentAmount) {
         return;
@@ -108,3 +108,10 @@ function renderHistory(expenses) {
     console.log('SpentListHTML: ', spentListHTML);
     spentListNode.innerHTML = `<ol>${spentListHTML}</ol>`;
 };
+
+function clearButtonHandler() {
+    expenses = [];
+    render(expenses);
+};
+
+clearButtonNode.addEventListener("click", clearButtonHandler);

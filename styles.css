@@ -11,6 +11,7 @@ body {
     /* box-sizing: border-box; */
     font-family: 'Inter', sans-serif;
     font-size: 1.0em;
+    line-height: 1.5em;
     color: var(--clr-font);
     background-color: var(--clr-back);
 }
@@ -21,6 +22,7 @@ button {
     width: 100%;
     font-family: inherit;
     font-size: inherit;
+    line-height: inherit;
     color: inherit;
     cursor: pointer;
 }
