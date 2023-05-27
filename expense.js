@@ -9,14 +9,14 @@ const totalSpentNode = document.querySelector('#total');
 const statusNode = document.querySelector('#status');
 const spentListNode = document.querySelector('#spentList');
 
-// new fithures for Stage Two: Categories, Date Selectors and Clear Button
+// new fithures for Stage Two: Categories and Date Selectors, U-update Limit and Clear Buttons
 const catSelectorNode = document.getElementById("catSelector");
 const dateSelectorNode = document.getElementById("dateSelector");
+const limitUpdateBtnNode = document.getElementById("limitUpdateBtn");
 const clearButtonNode = document.getElementById("clearButton");
 
-// const LIMIT = 2400;
-const limitNode = document.querySelector('#limit');
-const LIMIT = parseInt(limitNode.innerText);
+const limitNode = document.querySelector('#limit-id');
+let limit = parseInt(limitNode.innerText);
 
 let expenses = [];
 
@@ -42,7 +42,7 @@ inputButtonNode.addEventListener('click', function() {
 });
 
 function init(expenses) {
-    limitNode.innerText = LIMIT;
+    limitNode.innerText = limit;
     totalSpentNode.innerText = calcTotalSpent(expenses);
     statusNode.innerText = STATUS_OK;
 };
@@ -91,7 +91,7 @@ function renderTotalSpent(totalSpent) {
 
 function renderStatus(totalSpent) {
     // const totalSpent = calcTotalSpent(expenses);
-    if (totalSpent <= LIMIT) {
+    if (totalSpent <= limit) {
         statusNode.innerText = STATUS_OK;
         statusNode.classList.remove(STATUS_ALERT_CLASSNAME);
     } else {
@@ -114,4 +114,21 @@ function clearButtonHandler() {
     render(expenses);
 };
 
+function limitUpdateBtnHandler() {
+    console.log("all is right - it works))");
+    const NEW_LIMIT_QUERY = "You may set new limit here:";
+    const newLimitValue = prompt(NEW_LIMIT_QUERY);
+    
+    const newLimit = parseInt(newLimitValue);
+
+    if (!newLimit) {
+        return;
+    }
+
+    limitNode.innerText = newLimit;
+    limit = newLimit;
+    render(expenses);
+};
+
+limitUpdateBtnNode.addEventListener("click", limitUpdateBtnHandler);
 clearButtonNode.addEventListener("click", clearButtonHandler);

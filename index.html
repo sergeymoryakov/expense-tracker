@@ -11,6 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -56,7 +57,9 @@
             <div class="statusBlock">
                 <div>
                     <span class="label">Limit: </span>
-                    <span id="limit" class="euro">5000</span>                    
+                    <span id="limit-id" class="euro">5000</span>
+                    <i id="limitUpdateBtn" 
+                    class="limitUpdateBtn material-icons">track_changes</i>
                 </div>
                 <div>
                     <span class="label">Total spent: </span>
@@ -67,17 +70,16 @@
                     <span id="status" class="status">on target</span>
                 </div>
             </div>
-            
-            <div class="historyBlock">
-                <div class="label">Spent List</div>
-                <div id="spentList"></div>
-            </div>
             <div class="clearBlock">
                 <button 
                     class="clearButton"
                     id="clearButton">
                     Clear history
                 </button>
+            </div>
+            <div class="historyBlock">
+                <div class="label">Spent List</div>
+                <div id="spentList"></div>
             </div>
         </div>
 
