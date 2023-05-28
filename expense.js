@@ -95,7 +95,9 @@ function renderStatus(totalSpent) {
         statusNode.innerText = STATUS_OK;
         statusNode.classList.remove(STATUS_ALERT_CLASSNAME);
     } else {
-        statusNode.innerText = STATUS_ALERT;
+        const overBudget = totalSpent - limit;
+        statusNode.innerHTML = `${STATUS_ALERT} (${overBudget} ${CURRENCY})`;
+        // statusNode.innerText = STATUS_ALERT;
         statusNode.classList.add(STATUS_ALERT_CLASSNAME);
     };
 };

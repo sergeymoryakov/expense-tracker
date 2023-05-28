@@ -25,14 +25,6 @@
                     class="expenseAdder"
                     type="number">
             </div>
-            
-            <div class="inputButtonBlock">
-                <button 
-                    class="inputButton"
-                    id="inputButton">
-                    Enter
-                </button>
-            </div>
 
             <div class="catBlock">
                 <select class="catSelector" name="" id="catSelector">
@@ -47,19 +39,32 @@
                     <option value="Cashback">Cashback</option>
                 </select>
             </div>
-
+            
             <div class="dateBlock">
-                <select class="dateSelector" name="" id="dateSelector" disabled="disabled">
-
+                <select class="dateSelector" name="" id="dateSelector">
+                    <option value="Category" hidden disabled selected>
+                        [in development]
+                    </option>
                 </select>
+            </div>
+            
+            <div class="inputButtonBlock">
+                <button 
+                    class="inputButton"
+                    id="inputButton">
+                    Enter
+                </button>
             </div>
             
             <div class="statusBlock">
                 <div>
                     <span class="label">Limit: </span>
                     <span id="limit-id" class="euro">5000</span>
+                    <img id="limitUpdateBtn" class="limitUpdateBtn" 
+                        src="icon-update-black.png" alt="Limit update here">
+<!--                Icon "Tracj Changes"     
                     <i id="limitUpdateBtn" 
-                    class="limitUpdateBtn material-icons">track_changes</i>
+                    class="limitUpdateBtn material-icons">track_changes</i> -->
                 </div>
                 <div>
                     <span class="label">Total spent: </span>
@@ -69,14 +74,19 @@
                     <span class="label">Status: </span>
                     <span id="status" class="status">on target</span>
                 </div>
-            </div>
-            <div class="clearBlock">
                 <button 
                     class="clearButton"
                     id="clearButton">
                     Clear history
                 </button>
             </div>
+            <!-- <div class="clearBlock">
+                <button 
+                    class="clearButton"
+                    id="clearButton">
+                    Clear history
+                </button>
+            </div> -->
             <div class="historyBlock">
                 <div class="label">Spent List</div>
                 <div id="spentList"></div>
