@@ -70,6 +70,7 @@ p {
     .inputBlock,
     .catBlock,
     .dateBlock,
+    .inputButtonBlock,
     .statusBlock,
     .historyBlock {
         width: calc(100% - 2px);
@@ -77,11 +78,11 @@ p {
         /* for dev only - remove in production
         border: 1px dotted red; */
     }
-
+/* 
     .inputButtonBlock,
     .clearBlock {
         width: fit-content;
-    }
+    } */
 }
 
 input,
