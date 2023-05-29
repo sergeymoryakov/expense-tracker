@@ -17,14 +17,8 @@
 <body>
     <div class="container">
         <h1 class="label">Expense Tracker</h1>
-        <p>Add a new expense amount (enter negative if cashback or return):</p>
+        <p>Select category and add a new expense amount (for cashback enter negative amount):</p>
         <div class="masterBlock">
-            <div class="inputBlock euro">
-                <input
-                    id="expenseAdder"
-                    class="expenseAdder"
-                    type="number">
-            </div>
 
             <div class="catBlock">
                 <select class="catSelector" name="" id="catSelector">
@@ -38,6 +32,13 @@
                     <option value="Entertainment">Entertainment</option>
                     <option value="Cashback">Cashback</option>
                 </select>
+            </div>
+
+            <div class="inputBlock euro">
+                <input
+                    id="expenseAdder"
+                    class="expenseAdder"
+                    type="number">
             </div>
             
             <div class="dateBlock">
