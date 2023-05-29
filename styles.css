@@ -96,6 +96,11 @@ button {
     cursor: pointer;
 }
 
+button {
+    color: var(--clr-back);
+    font-weight: 700;
+}
+
 button:hover {
     opacity: 0.5;
 }
