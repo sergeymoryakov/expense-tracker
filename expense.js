@@ -2,6 +2,7 @@ const CURRENCY = 'Euro';
 const STATUS_OK = 'on target';
 const STATUS_ALERT = 'above budget';
 const STATUS_ALERT_CLASSNAME = 'status-alert';
+const NO_CAT_ALERT = 'No Category selected - please select';
 
 const expenseAdderNode = document.querySelector('#expenseAdder');
 const inputButtonNode = document.querySelector('#inputButton');
@@ -30,6 +31,7 @@ inputButtonNode.addEventListener('click', function() {
 
     const currentCategory = getSelectedCategory();
     if (currentCategory === "Category") {
+        alert(NO_CAT_ALERT);
         return;
     }
     console.log(currentCategory);
